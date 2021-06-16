@@ -1,19 +1,37 @@
 import React from 'react'
 import {View,Text,StyleSheet,Button} from 'react-native'
-import { CATEGORIES } from '../data/dummy-data'
+import { CATEGORIES,MEALS } from '../data/dummy-data'
+import MealItem from '../components/MealItem'
 
 const CategoryMealScreen = props => {
+    const renderMealItem = itemData => {
+        <MealItem 
+        image={itemData.item.imageUrl}
+        title={itemData.item.title}
+        onSelectMeal={() => {
+            props.navigation.navigate({
+                routeName: 'MealDetail',
+                params: {
+                    mealId: itemData.item.id
+                }
+            })
+        } 
+    }
+    duration={itemData.item.duration}
+    complexity={itemData.item.complexity} 
+    affordabilty={itemData.item.affordabilty}
+    /> 
+}  
     const catId = props.navigation.getParam('categoryId')
-
-    const selectedCategory = CATEGORIES.find(cat => cat.id === catId)
+//if not find -1 so >=0
+//check whithout indexOf
+    const displayedMeal = MEALS.filter(meal => meal.categoryId.indexOf(catId) >= 0)
 
     return(
     <View style={styles.screen}>
-        <Text >The Categories Meal Screen</Text>
-        <Text>{selectedCategory.title}</Text>
-        <Button title='Go to Deatils' onPress={() => {
-                props.navigation.navigate({routeName:'MealDetail'})
-            }}/>
+        <Flatlist keyExtractor={(item,index) => item.id} data={displayedMeal} renderItem={renderMealItem}
+        style={{width:'100%'}}
+        />
     </View>
     )
 }

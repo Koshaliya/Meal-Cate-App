@@ -1,19 +1,23 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-// import AppLoading from 'expo-app-loading';
-// import * as Font from 'expo-font' 
-// import {useScreens} from 'react-native-screens'  or enableScreens
 
 import MealsNavigator from './navigation/MealsNavigator';
 
+// import AppLoading from 'expo-app-loading';
+// import * as Font from 'expo-font' 
+// import {useScreens} from 'react-native-screens'  or enableScreens
 //install expo font
-//load Aync returns a promise
 //install react navigation - for native apps - version 3/4 - smooth experince
 //install react-native-screens
+//install createBottomTabNavigator
+//npm install --save react-navigation-header-buttons
+//npm                                -material-bottom-tabs
+//npm                react-native-paper
 
+//load Async returns a promise
 
-//useScreens()
+useScreens()
 
 const fetchFonts = () => {
   return Font.loadAsync({
