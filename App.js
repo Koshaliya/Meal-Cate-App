@@ -1,15 +1,19 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import AppLoading from 'expo-app-loading';
-import * as Font from 'expo-font' 
+// import AppLoading from 'expo-app-loading';
+// import * as Font from 'expo-font' 
+// import {useScreens} from 'react-native-screens'  or enableScreens
 
 import MealsNavigator from './navigation/MealsNavigator';
 
 //install expo font
 //load Aync returns a promise
 //install react navigation - for native apps - version 3/4 - smooth experince
+//install react-native-screens
 
+
+//useScreens()
 
 const fetchFonts = () => {
   return Font.loadAsync({
